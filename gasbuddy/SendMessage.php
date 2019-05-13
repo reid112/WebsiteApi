@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     if($query) {
         $json = array("status" => 1, "msg" => "Success!");
     } else {
-        $json = array("status" => 0, "msg" => "Error!" . $query);
+        $json = array("status" => 0, "msg" => "Error!");
     }
 } else {
     $json = array("status" => 0, "msg" => "Request method not accepted");
@@ -26,3 +26,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 /* Output header */
 header('Content-type: application/json');
 echo json_encode($json);
+
+?>

@@ -1,11 +1,11 @@
 <?php
 
-$server = "server";
-$username = "username";
-$password = "password";
+$server = "";
+$username = "";
+$password = "";
 
 // Create connection
-$conn = mysql_connect($server, $username, $password, $database);
+$conn = mysql_connect($server, $username, $password);
 mysql_select_db('api');
 
 // Check connection

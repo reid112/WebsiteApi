@@ -1,7 +1,7 @@
 <?php
 
 // Include database.php
-include_once('database.php');
+include_once('../database.php');
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     // Get data
@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     if($query) {
         $json = array("status" => 1, "msg" => "Success!");
     } else {
-        $json = array("status" => 0, "msg" => "Error!");
+        $json = array("status" => 0, "msg" => "Error!" . $query);
     }
 } else {
     $json = array("status" => 0, "msg" => "Request method not accepted");

@@ -10,7 +10,7 @@ $posts = array();
 if($query) {
     if(mysql_num_rows($query)) {
         while($message = mysql_fetch_assoc($query)) {
-            $messages[] = array('post'=>$message);
+            $messages[] = array($message);
         }
     }
 

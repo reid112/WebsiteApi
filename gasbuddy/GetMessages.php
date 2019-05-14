@@ -3,18 +3,18 @@
 // Include database.php
 include_once('../database.php');
 
-$sql = "SELECT * FROM gb_messages WHERE shown = 0 LIMIT 5";
+$sql = "SELECT * FROM gb_messages WHERE shown = 0";
 $query = mysql_query($sql);
 $posts = array();
 
 if($query) {
     if(mysql_num_rows($query)) {
-        while($post = mysql_fetch_assoc($query)) {
-            $posts[] = array('post'=>$post);
+        while($message = mysql_fetch_assoc($query)) {
+            $messages[] = array('post'=>$message);
         }
     }
 
-    $json = array("status" => 1, "msg" => "Success!", "messages" => $posts);
+    $json = array("status" => 1, "msg" => "Success!", "messages" => $messages);
 } else {
     $json = array("status" => 0, "msg" => "Error!");
 }
@@ -26,6 +26,6 @@ mysql_query($update_sql);
 @mysql_close($conn);
 
 header('Content-type: application/json');
-echo json_encode(array('posts'=>$json));
+echo json_encode(array('response'=>$json));
 
 ?>
